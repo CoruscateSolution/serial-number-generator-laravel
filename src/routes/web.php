@@ -1,8 +1,10 @@
 <?php
 
-use CoruscateSolutions\SerialNumberGeneratorLaravel\Models\SerialNoGenerator;
+Route::group(['namespace' => 'CoruscateSolutions\SerialNumberGeneratorLaravel\Http\Controllers' , 'prefix'=>'serial-no'], function () {
 
-Route::get('cs-setting', function () {
-    return SerialNoGenerator::all();
+   Route::post('/', 'SerialController@store');
+   Route::post('list', 'SerialController@listDetail');
+   Route::get('/{id}', 'SerialController@show');
+   Route::delete('delete/{id}', 'SerialController@destroy');
 
 });
